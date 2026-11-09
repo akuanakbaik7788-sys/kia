@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <title>Drip Client</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">D</span><span>DRIP <b>CLIENT</b></span></a>
+    <span class="status"><i></i> COMMUNITY PORTAL</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">WELCOME TO THE NEXT LEVEL</p>
+      <h1>DRIP <span>CLIENT</span></h1>
+      <p class="hero-copy">A clean home for your client releases and updates.</p>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel releases">
+        <div class="section-heading">
+          <div><p class="eyebrow">LIBRARY</p><h2>Latest releases</h2></div>
+          <span class="pill">PUBLIC</span>
+        </div>
+        <div id="release-list" class="release-list">
+          <div class="empty-state">Connect Supabase to load release entries.</div>
+        </div>
+      </section>
+
+      <aside class="panel admin-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">CONTROL CENTER</p><h2>Admin access</h2></div>
+          <span class="lock-icon" aria-hidden="true">⌑</span>
+        </div>
+        <p class="muted">Sign in with your authorized admin email to manage the release library.</p>
+
+        <form id="login-form" class="login-form">
+          <label for="email">Admin email</label>
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="admin@example.com" required>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required minlength="8">
+          <button class="button button-primary" type="submit">Sign in <span>↗</span></button>
+          <p id="login-message" class="message" role="status"></p>
+        </form>
+
+        <div id="admin-dashboard" class="dashboard hidden">
+          <div class="signed-in"><span class="online-dot"></span><span id="admin-email"></span></div>
+          <h3>Add a release</h3>
+          <form id="release-form" class="release-form">
+            <label for="release-name">Release name</label>
+            <input id="release-name" name="name" maxlength="100" required placeholder="Release name">
+            <label for="release-description">Description</label>
+            <textarea id="release-description" name="description" maxlength="500" rows="3" placeholder="Short description"></textarea>
+            <label for="release-url">Download URL</label>
+            <input id="release-url" name="download_url" type="url" placeholder="https://..." required>
+            <button class="button button-primary" type="submit">Publish release</button>
+            <p id="release-message" class="message" role="status"></p>
+          </form>
+          <button id="logout-button" class="button button-secondary" type="button">Sign out</button>
+        </div>
+      </aside>
+    </section>
+    <footer><span>DRIP CLIENT</span><span>Built for your community</span></footer>
+  </main>
+</body>
+</html>
